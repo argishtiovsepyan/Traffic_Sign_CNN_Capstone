@@ -3,6 +3,7 @@ model/model_v1.h5
 data/preproc_data
 data/original_data
 model/model_v2.h5
+model/model_vgg19.h5
 
 # remove DS_store
 
