@@ -15,8 +15,18 @@ Tesla's automated driving cars have revolutionized the way we perceive traffic s
 # **Finding Data and EDA**
 Like all projects, the first step was to find data. Originally, I planned on using the full LISA (Laboratory for Intelligent and Safe Automobiles) traffic sign dataset containing 6,610 images and 47 classes. Unfortunately, the original source to this data from UC San Diego is no longer available. Luckily, on Kaggle I found a version of the dataset called Tiny LISA which contains 900 images and 9 classes. It also contained an annotations CSV where each annotation is a row containing the name of the file with enumeration and the traffic sign class label to which the file belongs. The images were 704 x 480 pixels in RGB format. 
 
-The preparation of the dataset began with reading annotations, where image and class information were extracted from a CSV file, followed by image augmentation using techniques like rescaling and zooming to enrich the training set. The images were then loaded and resized to a standard size, and further augmentations were applied to create diverse representations. Label transformation was done to one-hot encode the class labels for multi-class classification, allowing the system to recognize different traffic signs. Finally, all the augmented images and labels were converted to numpy arrays, making them ready for input into the deep learning model. 
+The preparation of the dataset began with reading annotations, where image and class information were extracted from a CSV file, followed by image augmentation using techniques like rescaling and zooming to enrich the training set. The images were then loaded and resized to a standard size. Label transformation was done to one-hot encode the class labels for multi-class classification, allowing the system to recognize different traffic signs. Finally, all the augmented images and labels were converted to numpy arrays, making them ready for input into the deep learning model. 
 
 <p align="center">
 <img src= "images/presentation/datagen.jpg">
 </p>
+
+Using the generator, I acquired a total of 2700 images distributed across the same 9 classes. These were divided into three different sets: a training set consisting of 2160 images, a validation set with 270 images, and a hold-out set, also comprising 270 images.
+
+# **Modeling**
+Utilizing Keras's sequential model, I constructed the CNN and explored different architectural designs. After a meticulous process of fine-tuning various hyperparameters, it became evident that the ReLU activation function was optimal for this specific challenge. Adjustments were made to the number of epochs and batch size, though these modifications yielded minimal impact on the overall performance. In my examination of the two cold start models, I noted that the epochs tended to plateau quite early, a phenomenon addressed by implementing early stopping. Conversely, the transfer learning model employing VGG19 consistently reached the maximum number of epochs. Due to the VGG19 model's considerable slowness and computational expense with similar results, I ultimately chose to abandon that approach.
+
+<p align="center">
+<img src= "images/presentation/model_v1_h5.png">
+</p>
+
