@@ -27,5 +27,5 @@ Using the generator, I acquired a total of 2700 images distributed across the sa
 Utilizing Keras's sequential model, I constructed the CNN and explored different architectural designs. After a meticulous process of fine-tuning various hyperparameters, it became evident that the ReLU activation function was optimal for this specific challenge. Adjustments were made to the number of epochs and batch size, though these modifications yielded minimal impact on the overall performance. In my examination of the two cold start models, I noted that the epochs tended to plateau quite early, a phenomenon addressed by implementing early stopping. Conversely, the transfer learning model employing VGG19 consistently reached the maximum number of epochs. Due to the VGG19 model's considerable slowness and computational expense with similar results, I ultimately chose to abandon that approach.
 
 <p align="center">
-  <img src="images/presentation/model_v1_h5.svg" height="400">
+  <img src="images/presentation/model_v1_h5.svg">
 </p>
