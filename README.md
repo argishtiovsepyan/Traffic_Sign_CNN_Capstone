@@ -32,10 +32,10 @@ Utilizing Keras's sequential model, I constructed the CNN and explored different
     <th align="center">Model Version 2</th>
   </tr>
   <tr>
-    <td align="center">
+    <td align="center" valign="top">
       <img src="images/presentation/model_v1_h5.svg" alt="Model Version 1" width="100%">
     </td>
-    <td align="center">
+    <td align="center" valign="top">
       <img src="images/presentation/model_v2_h5.svg" alt="Model Version 2" width="100%">
     </td>
   </tr>
