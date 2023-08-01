@@ -107,3 +107,9 @@ An intriguing phenomenon was observed in the context of stop and yield signs. Th
 </p>
 
 The model's performance exhibited specific challenges when confronted with images containing multiple signs. A particularly challenging class for the model was "Keep Right." In various instances, the model failed to focus on this sign, instead making arbitrary predictions from any of the nine classes. Initially, I thought this could be attributed to class imbalance and underrepresentation. However, a closer examination revealed that "Keep Right" is actually the second most common class, following stop signs. This complexity warrants further investigation to understand the underlying issues in the model's classification behavior.
+
+# Sources
+
+Dataset: M. Lopez-Montiel, U. Orozco-Rosas, M. Sánchez-Adame, K. Picos and O. H. M. Ross, "Evaluation Method of Deep Learning-Based Embedded Systems for Traffic Sign Detection," in IEEE Access, vol. 9, pp. 101217-101238, 2021, doi: 10.1109/ACCESS.2021.3097969.
+
+Grad-CAM: https://keras.io/examples/vision/grad_cam/
