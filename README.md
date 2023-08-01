@@ -79,5 +79,15 @@ Utilizing Keras's sequential model, I constructed the CNN and explored different
 | 9     | 0.0995     | 0.9593         | 0.2319          | 0.8963              |
 | 10    | 0.0819     | 0.9653         | 0.1766          | 0.9259              |
 
-The second model performed slightly better than the first and I decided to move forward with it. On the hold out set it was 92.96 percent accurate with a loss of 0.2318 which is similar to the best validation accuracy and loss. As you can see with both models, after epoch 5 it begins experiencing diminishing returns and completely flattens off as it moves forward through the epochs.
+The second model performed slightly better than the first and I decided to move forward with it. On the hold out set it was 92.96 percent accurate with a loss of 0.2318 which is similar to the best validation accuracy and loss. As you can see with both models, after epoch 5 it begins experiencing diminishing returns and completely flattens off as it moves towards the end.
 
+## Vizualtization
+
+I created a function designed to illustrate the activations within specific layers. Accepting an input image, the model, and a list of layers to visualize, it generates a series of images displaying how the input is transformed across those layers. The visualizations provide insights into how different layers respond to the input, assisting in understanding the model's behavior.
+
+<p align="center">
+<img src= "images/presentation/model_v1_viz2.png">
+<img src= "images/presentation/model_v2_viz2.png">
+</p>
+
+It is evident that the second model exhibits a superior ability to focus on the stop sign, demonstrating a refined detection mechanism. In contrast, the first model exhibits a less precise localization of the stop sign.
