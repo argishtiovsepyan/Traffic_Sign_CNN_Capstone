@@ -108,6 +108,10 @@ An intriguing phenomenon was observed in the context of stop and yield signs. Th
 
 The model's performance exhibited specific challenges when confronted with images containing multiple signs. A particularly challenging class for the model was "Keep Right." In various instances, the model failed to focus on this sign, instead making arbitrary predictions from any of the nine classes. Initially, I thought this could be attributed to class imbalance and underrepresentation. However, a closer examination revealed that "Keep Right" is actually the second most common class, following stop signs. This complexity warrants further investigation to understand the underlying issues in the model's classification behavior.
 
+# Future Work
+
+A key focus will be the investigation of the issues observed with the "Keep Right" predictions and the handling of images containing multiple signs. Adjustments to the model will explore variations in batch size and layer composition, while also experimenting with newer optimization techniques. Furthermore, I plan to examine the impact of different image presentations, such as black and white or grayscale, to gauge how color weighting, particularly the red hue of stop signs and yellow hue of other signs, affects predictions. An expansion in the diversity of training images, including varied distances from the camera, could provide a more robust solution to these challenges. This comprehensive approach aims to refine the model, thereby reducing misclassifications and enhancing its overall performance in real-world scenarios.
+
 # Sources
 
 Dataset: M. Lopez-Montiel, U. Orozco-Rosas, M. Sánchez-Adame, K. Picos and O. H. M. Ross, "Evaluation Method of Deep Learning-Based Embedded Systems for Traffic Sign Detection," in IEEE Access, vol. 9, pp. 101217-101238, 2021, doi: 10.1109/ACCESS.2021.3097969.
