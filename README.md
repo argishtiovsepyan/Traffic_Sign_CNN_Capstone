@@ -1,5 +1,5 @@
 # **The Road Ahead:**
-### Creating a CNN for Traffic Sign Detection and Classification
+## Creating a CNN for Traffic Sign Detection and Classification
 
 <p align="center">
 <img src= "images/presentation/traffic_signs.jpg">
@@ -26,7 +26,7 @@ Using the generator, I acquired a total of 2700 images distributed across the sa
 # **Modeling**
 Utilizing Keras's sequential model, I constructed the CNN and explored different architectural designs. After a meticulous process of fine-tuning various hyperparameters, it became evident that the ReLU activation function was optimal for this specific challenge. Adjustments were made to the number of epochs and batch size, though these modifications yielded minimal impact on the overall performance. In my examination of the two cold start models, I noted that the epochs tended to plateau quite early, a phenomenon addressed by implementing early stopping. Conversely, the transfer learning model employing VGG19 consistently reached the maximum number of epochs. Due to the VGG19 model's considerable slowness and computational expense with similar results, I ultimately chose to abandon that approach.
 
-<table align="center" width="100%" style="width:100%;">
+<table align="center" width="100%">
   <tr>
     <th align="center">Model Version 1</th>
     <th align="center">Model Version 2</th>
@@ -40,3 +40,44 @@ Utilizing Keras's sequential model, I constructed the CNN and explored different
     </td>
   </tr>
 </table>
+
+## Model 1 Results
+
+<p align="center">
+<img src= "images/presentation/model_v1_graph.png">
+</p>
+
+| Epoch | Train Loss | Train Accuracy | Validation Loss | Validation Accuracy |
+|-------|------------|----------------|-----------------|---------------------|
+| 1     | 2.0165     | 0.3116         | 1.4536          | 0.4778              |
+| 2     | 1.1211     | 0.6079         | 0.7736          | 0.7148              |
+| 3     | 0.5179     | 0.8343         | 0.5046          | 0.8407              |
+| 4     | 0.2595     | 0.9042         | 0.4266          | 0.8593              |
+| 5     | 0.1705     | 0.9366         | 0.3281          | 0.8889              |
+| 6     | 0.1436     | 0.9463         | 0.3311          | 0.8741              |
+| 7     | 0.1061     | 0.9560         | 0.3524          | 0.8852              |
+| 8     | 0.0998     | 0.9606         | 0.3499          | 0.8926              |
+| 9     | 0.0836     | 0.9718         | 0.3008          | 0.9000              |
+| 10    | 0.1020     | 0.9620         | 0.2797          | 0.9000              |
+
+## Model 2 Results
+
+<p align="center">
+<img src= "images/presentation/model_v2_graph.png">
+</p>
+
+| Epoch | Train Loss | Train Accuracy | Validation Loss | Validation Accuracy |
+|-------|------------|----------------|-----------------|---------------------|
+| 1     | 1.8388     | 0.3241         | 1.3178          | 0.5074              |
+| 2     | 1.0684     | 0.6204         | 0.8251          | 0.7111              |
+| 3     | 0.5319     | 0.8111         | 0.3724          | 0.8704              |
+| 4     | 0.2761     | 0.8926         | 0.2854          | 0.8815              |
+| 5     | 0.1794     | 0.9324         | 0.2129          | 0.9037              |
+| 6     | 0.1265     | 0.9463         | 0.2380          | 0.9148              |
+| 7     | 0.1256     | 0.9468         | 0.2884          | 0.9111              |
+| 8     | 0.0934     | 0.9625         | 0.3101          | 0.9111              |
+| 9     | 0.0995     | 0.9593         | 0.2319          | 0.8963              |
+| 10    | 0.0819     | 0.9653         | 0.1766          | 0.9259              |
+
+The second model performed slightly better than the first and I decided to move forward with it. On the hold out set it was 92.96 percent accurate with a loss of 0.2318 which is similar to the best validation accuracy and loss. As you can see with both models, after epoch 5 it begins experiencing diminishing returns and completely flattens off as it moves forward through the epochs.
+
