@@ -8,10 +8,6 @@
 # **Introduction**
 Tesla's automated driving cars have revolutionized the way we perceive traffic sign detection. It's a marvel that evokes the fascination I have with machine learning and its real world applications. Traffic sign detection is an integral part of autonomous driving technology that ensures safety and regulation compliance. My curiosity led me to explore how a CNN could be implemented to detect and interpret traffic signs, using cutting-edge technologies such as TensorFlow and Keras. I also made use of other essential libraries like Pandas, NumPy, Matplotlib and SciKit-Learn, creating a comprehensive toolkit for traffic sign detection. The journey led me to develop three Jupyter notebooks, each serving a unique purpose: Exploratory Data Analysis (EDA), Modeling, and Grad-CAM Visualization. The future of driving is here, and it's governed by the silent commands of traffic signs, interpreted by the brilliant minds of machines.
 
-<p align="center">
-<img src= "images/presentation/tf_keras.jpeg">
-</p>
-
 # **Finding Data and EDA**
 Like all projects, the first step was to find data. Originally, I planned on using the full LISA (Laboratory for Intelligent and Safe Automobiles) traffic sign dataset containing 6,610 images and 47 classes. Unfortunately, the original source to this data from UC San Diego is no longer available. Luckily, on Kaggle I found a version of the dataset called Tiny LISA which contains 900 images and 9 classes. It also contained an annotations CSV where each annotation is a row containing the name of the file with enumeration and the traffic sign class label to which the file belongs. The images were 704 x 480 pixels in RGB format. 
 
@@ -81,7 +77,7 @@ Utilizing Keras's sequential model, I constructed the CNN and explored different
 
 The second model performed slightly better than the first and I decided to move forward with it. On the hold out set it was 92.96 percent accurate with a loss of 0.2318 which is similar to the best validation accuracy and loss. As you can see with both models, after epoch 5 it begins experiencing diminishing returns and completely flattens off as it moves towards the end.
 
-## Vizualtization
+## Visualization
 
 I created a function designed to illustrate the activations within specific layers. Accepting an input image, the model, and a list of layers to visualize, it generates a series of images displaying how the input is transformed across those layers. The visualizations provide insights into how different layers respond to the input, assisting in understanding the model's behavior.
 
@@ -91,3 +87,23 @@ I created a function designed to illustrate the activations within specific laye
 </p>
 
 It is evident that the second model exhibits a superior ability to focus on the stop sign, demonstrating a refined detection mechanism. In contrast, the first model exhibits a less precise localization of the stop sign.
+
+# Grad-CAM
+
+In order to deepen the understanding of the model's behavior, particularly in differentiating between correct and incorrect classifications, I employed the Grad-CAM technique. By focusing on the activities within the final convolution layer, this method provided valuable insights into the underlying processes that contributed to the model's decision-making patterns.
+
+## Correct Predictions
+<p align="center">
+<img src= "images/presentation/correct/correct_stop1.png">
+<img src= "images/presentation/correct/correct_yield2.png">
+</p>
+
+An intriguing phenomenon was observed in the context of stop and yield signs. The visualization revealed that the model was also focusing on brake lights. While this behavior may initially appear beneficial, it was found to be a contributing factor to numerous misclassifications. Specifically, yield signs accompanied by brake lights were prone to being incorrectly identified as stop signs, thus highlighting a subtle complexity in the model's interpretative process.
+
+## Incorrect Predictions
+<p align="center">
+<img src= "images/presentation/wrong/wrong_1.png">
+<img src= "images/presentation/wrong/wrong_6.png">
+</p>
+
+The model's performance exhibited specific challenges when confronted with images containing multiple signs. A particularly challenging class for the model was "Keep Right." In various instances, the model failed to focus on this sign, instead making arbitrary predictions from any of the nine classes. Initially, I thought this could be attributed to class imbalance and underrepresentation. However, a closer examination revealed that "Keep Right" is actually the second most common class, following stop signs. This complexity warrants further investigation to understand the underlying issues in the model's classification behavior.
