@@ -56,13 +56,15 @@ def get_prediction_details(processed_image, model, reverse_class_mapping):
     return test_image, predicted_class, predicted_class_index
     
 def app():
-    st.title('Traffic Sign Classification')
+    st.title('Traffic Sign CNN')
+    st.image("images/presentation/traffic_signs.jpg", use_column_width=True)
     st.markdown("Select an image from the list or upload your own to let the AI classify it for you!")
 
     image_list = {
-        "Image 1": "path/to/image1.jpg",
-        "Image 2": "path/to/image2.jpg",
-
+        "STOP": "images/streamlit/C_STOP_1.jpg",
+        "PED CROSSING": "images/streamlit/C_PED_1.jpg",
+        "YIELD": "images/streamlit/INC_YIELD.jpg",
+        "35 MPH": "images/streamlit/INC_35.jpg"
     }
 
     selected_image_name = st.selectbox("Choose an image from the list:", options=list(image_list.keys()))
